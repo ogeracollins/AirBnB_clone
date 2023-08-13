@@ -4,10 +4,19 @@ FileStorage serialization and deserialization of JSON
 """
 import json
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
+    air_dict = {"BaseModel": BaseModel, "User": User, "Place": Place,
+                  "Amenity": Amenity, "City": City, "Review": Review,
+                  "State": State}
 
     def all(self):
         """
@@ -35,11 +44,11 @@ class FileStorage:
         deserializes the JSON file to __objects
         """
         try:
-            with open(self.__file_path, 'r') as f:
-                new_dict = json.load(f.read())
-                for value in new_dict.values():
-                    cls = value["__class__"]
-                    self.new(eval(cls)(**value))
+            with open(self.__file_path, 'r', encoding="UTF-8") as f:
+                new_obj_dict = json.load(f)
+            for key, value in new_obj_dict.items():
+                obj = self.air_dict[value['__class__']](**value)
+                self.__objects[key] = obj        
         except FileNotFoundError:
             pass
 
