@@ -4,6 +4,7 @@ Place class deninition
 """
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """
     Represents a place class

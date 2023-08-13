@@ -4,6 +4,7 @@ Amenity class deninition
 """
 from models.base_model import BaseModel
 
+
 class Amenity(BaseModel):
     """
     Represents an amenity class

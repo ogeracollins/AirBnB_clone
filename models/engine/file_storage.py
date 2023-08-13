@@ -11,12 +11,14 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
+
 class FileStorage:
     __file_path = "file.json"
     __objects = {}
-    air_dict = {"BaseModel": BaseModel, "User": User, "Place": Place,
-                  "Amenity": Amenity, "City": City, "Review": Review,
-                  "State": State}
+    air_dict = {
+        "BaseModel": BaseModel, "User": User, "Place": Place,
+        "Amenity": Amenity, "City": City, "Review": Review, "State": State
+    }
 
     def all(self):
         """
@@ -48,8 +50,6 @@ class FileStorage:
                 new_obj_dict = json.load(f)
             for key, value in new_obj_dict.items():
                 obj = self.air_dict[value['__class__']](**value)
-                self.__objects[key] = obj        
+                self.__objects[key] = obj
         except FileNotFoundError:
             pass
-
-

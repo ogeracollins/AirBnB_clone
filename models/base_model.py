@@ -6,6 +6,7 @@ from uuid import uuid4
 from datetime import datetime
 import models
 
+
 class BaseModel:
     """"
     Base class containing common attributes/methods
@@ -43,25 +44,26 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
-    """
-    Returns class name, id and dictionary
-    """
-    return '[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.__dict__)
+        """
+        Returns class name, id and dictionary
+        """
+        return '[{}] ({}) {}'.format(
+                self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
-    """
-    Updated updated_at to current time
-    """
-    self.updated_at = datetime.now()
-    models.storage.save()
+        """
+        Updated updated_at to current time
+        """
+        self.updated_at = datetime.now()
+        models.storage.save()
 
     def to_dict(self):
-    """
-    Return dictionary of all keys/values
-    """
-    dict_cp = self.__dict__.copy()
-    dict_cp["created_at"] = self.created_at.isoformat()
-    dict_cp["updated_at"] = self.updated_at.isoformat()
-    dict_cp["__class__"] = self.__class__.__name__
+        """
+        Return dictionary of all keys/values
+        """
+        dict_cp = self.__dict__.copy()
+        dict_cp["created_at"] = self.created_at.isoformat()
+        dict_cp["updated_at"] = self.updated_at.isoformat()
+        dict_cp["__class__"] = self.__class__.__name__
 
     return dict_cp
