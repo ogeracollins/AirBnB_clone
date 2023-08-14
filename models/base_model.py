@@ -45,8 +45,10 @@ class BaseModel:
 
     def __str__(self):
         """
-        Returns class name, id and dictionary
+        Returns:
+            class name, id and dictionary
         """
+
         return '[{}] ({}) {}'.format(
                 self.__class__.__name__, self.id, self.__dict__)
 
@@ -59,7 +61,8 @@ class BaseModel:
 
     def to_dict(self):
         """
-        Return dictionary of all keys/values
+        Returns: 
+            dictionary of all keys/values
         """
         dict_cp = self.__dict__.copy()
         dict_cp["created_at"] = self.created_at.isoformat()
