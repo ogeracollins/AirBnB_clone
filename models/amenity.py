@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 """
-Amenity class deninition
+Amenity class, a subclass of BaseModel
 """
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
     """
-    Represents an amenity class
-    Attributes:
-        name(str): Name of the amenity
+    A subclass of BaseModel class
+    Public class attribute:
+        name: (str)
     """
-
     name = ""
