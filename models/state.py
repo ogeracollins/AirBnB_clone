@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 """
-States class deninition
+State class, a subclass of BaseModel
 """
 from models.base_model import BaseModel
 
+
 class State(BaseModel):
     """
-    Represents a state class
-    Attributes:
-        name(str): Name of the state
+    A subclass of BaseModel class
+    Public class attribute:
+        name: (str)
     """
-
     name = ""

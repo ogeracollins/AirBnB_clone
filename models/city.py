@@ -1,16 +1,16 @@
 #!/usr/bin/python3
 """
-City class deninition
+City class, a subclass of BaseModel
 """
 from models.base_model import BaseModel
 
+
 class City(BaseModel):
     """
-    Represents a city class
-    Attributes:
-        state_id(str): Unique state identifier
-        name(str): Name of the city
+    A subclass of BaseModel class
+    Public class attributes:
+        state_id: (str) will be State.id
+        name:     (str)
     """
-
     state_id = ""
     name = ""
